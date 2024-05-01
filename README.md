@@ -46,25 +46,25 @@ This is a brand new website, looking forward to your production of interesting c
 
 # 🍧 特性界面展示
 ### 组
-![输入图片说明](imagesgroup.png)
+![输入图片说明](images/imagesgroup.png)
 
 ### 组内Feeds
-![输入图片说明](imagesgroup_feeds.png)
+![输入图片说明](images/imagesgroup_feeds.png)
 
 ### 个人主页
-![输入图片说明](imageshomepage.png)
+![输入图片说明](images/imageshomepage.png)
 
 ### 主题列表
-![输入图片说明](imagestopics.png)
+![输入图片说明](images/imagestopics.png)
 
 ### 主题内容
-![输入图片说明](imagestopic_content.png)
+![输入图片说明](images/imagestopic_content.png)
 
 ### 创建主题
-![输入图片说明](imagescreate_topic.png)
+![输入图片说明](images/imagescreate_topic.png)
 
 ### 通知
-![输入图片说明](imagesnotifications.png)
+![输入图片说明](images/imagesnotifications.png)
 
 # 🏡 社区
 - [讨论区](https://kafeih.com/team-details/1785499718915141632)
