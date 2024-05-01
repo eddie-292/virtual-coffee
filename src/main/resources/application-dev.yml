@@ -1,5 +1,5 @@
 server:
-  ip: 43.139.205.50
+  ip: 127.0.0.1
   #允许的跨域请求源
   allowedOriginPatterns: "*"
   #事件通知人邮箱
