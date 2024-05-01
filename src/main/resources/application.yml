@@ -1,0 +1,53 @@
+server:
+  port: 61900
+  max-http-header-size: 10240
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  application:
+    name: group-server
+  profiles:
+    # 环境配置 pro dev
+    active: dev
+  servlet:
+    multipart:
+      #location: /logs/tmp
+      max-request-size: 200MB
+      max-file-size: 200MB
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    locale: zh_CN
+    serialization:
+      # 格式化输出
+      indent_output: false
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: false
+    cache-enabled: true
+    lazy-loading-enabled: true
+    multiple-result-sets-enabled: true
+  global-config:
+    banner: false
+    db-config:
+      id-type: assign_id
+      table-underline: true
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    enable-sql-runner: true
+  configuration-properties:
+    prefix:
+    blobType: BLOB
+    boolValue: true
+
+# 日志配置
+logging:
+  level:
+    mygroup: debug
+    org.springframework: warn
+  file:
+    path: logs

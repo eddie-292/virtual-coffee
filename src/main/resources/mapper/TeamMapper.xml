@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright Statement and License Information for Virtual Coffee Kafeih.com Community
+  ~
+  ~ Copyright Owner：Kafeih.com Community and its contributors, since the inception of the project.
+  ~
+  ~ License Type：All code, documentation, and design works related to the Kafeih.com Community are licensed under the GNU Affero General Public License (AGPL) v3 or any later version.
+  ~
+  ~ Use and Distribution：You are free to use, copy, modify, and distribute the code, documentation, and design works of the Kafeih.com Community, subject to the following conditions:
+  ~
+  ~ 1. You must include the original copyright and license notices in all copies distributed or made publicly available.
+  ~ 2. If you modify the code or design, or derive new works from those provided by the community, you must release these modifications or derivative works under the terms of the AGPLv3 license.
+  ~ 3. Important Note: If you use the code or design of this community to provide network services, you must ensure that all users accessing the service through the network can access the corresponding source code.
+  ~
+  ~ No Warranty：The Kafeih.com Community and its code, documentation, and design works are provided "as is" without any warranty, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement.
+  ~
+  ~ License Acquisition：The complete text of the GNU Affero General Public License (AGPL) v3 can be found on the GNU official website.
+  ~
+  ~ Please note that the above statement only applies to the Kafeih.com Community and the code, documentation, and design works provided by it. Third-party links or resources may be subject to different licenses from their respective owners or publishers. When using these resources, please be sure to comply with the terms of their respective licenses.
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mygroup.mapper.TeamMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="mygroup.entity.Team">
+        <id column="team_id" property="teamId" />
+        <result column="creator_user_id" property="creatorUserId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="team_name" property="teamName" />
+        <result column="team_image_url" property="teamImageUrl" />
+        <result column="home_background_image" property="homeBackgroundImage" />
+        <result column="is_public" property="isPublic" />
+        <result column="team_description" property="teamDescription" />
+        <result column="team_member_count" property="teamMemberCount" />
+        <result column="daily_post_count" property="dailyPostCount" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        team_id, creator_user_id, create_time, update_time, team_name, team_image_url, home_background_image, is_public, team_description, team_member_count, daily_post_count
+    </sql>
+
+    <update id="updatePostCount" parameterType="Long">
+        UPDATE team SET daily_post_count = (daily_post_count + 1) WHERE team_id = #{teamId}
+    </update>
+
+    <update id="subMemberCount" parameterType="Long">
+        UPDATE team SET team_member_count = (IF(team_member_count > 0, team_member_count - 1, 0)) WHERE team_id = #{teamId}
+    </update>
+
+    <update id="addMemberCount" parameterType="Long">
+        UPDATE team SET team_member_count = (team_member_count + 1) WHERE team_id = #{teamId}
+    </update>
+
+</mapper>

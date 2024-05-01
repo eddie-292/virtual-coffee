@@ -1,0 +1,72 @@
+server:
+  ip: 43.139.205.50
+  #允许的跨域请求源
+  allowedOriginPatterns: "*"
+  #事件通知人邮箱
+  notifyEmail: xxx@163.com
+
+github:
+  client_id:
+  client_secret:
+  redirect_uri:
+
+spring:
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: xxx@163.com
+    password: xxx
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+          ssl:
+            enable: true
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+  data:
+    mongodb:
+      host: ${server.ip}
+      port: 65505
+      database: mygroup
+      username: xxx
+      password: xxx
+      authentication-database: admin
+  redis:
+    connectTimeout: 30000
+    database: 1
+    host: ${server.ip}
+    password: xxx
+    port: 6658
+    timeout: 10000
+    jedis:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 8
+        min-idle: 1
+  rabbitmq:
+    virtual-host: /
+    host: ${server.ip}
+    port: 6659
+    username: xxx
+    password: xxx
+  datasource:
+    dynamic:
+      primary: main
+      datasource:
+        main:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://${server.ip}:65506/mygroup?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+          username: xxx
+          password: xxx
+          druid:
+            initial-size: 10
+            max-active: 500
